@@ -77,7 +77,7 @@ typedef struct s_image
 	int		movement;
 	int		char_x_65;
 	int		char_y_65;
-	bool	exit_check;
+	int		exit_check;
 	int		char_count;
 }			t_image;
 
@@ -88,7 +88,7 @@ void		moveleft(t_image *game);
 void		moveup(t_image *game);
 void		movedown(t_image *game);
 void		ft_swap(char *a, char *b);
-void		free_matrix(char **matrix, int rows);
+void		free_matrix(char **matrix);
 int			close_x(t_image *game);
 int			cant_move(t_image *game, int tasto);
 void		print_move(t_image *game);
@@ -104,5 +104,7 @@ void		ft_error_msg(char *s, t_image *game);
 void		ft_arg(int argc, char **argv, t_image *game);
 void		set_game(t_image *game);
 int			close_vc(t_image *game);
+int			close_ln(t_image *game);
+void 		check_n(char* full_str, t_image	*game);
 
 #endif

@@ -14,6 +14,7 @@ NAME	= get_next_line_bonus.a
 
 bonus	= get_next_line_bonus.c\
 get_next_line_utils_bonus.c\
+get_next_windows.c\
 
 BONUS	= $(bonus:.c=.o)
 

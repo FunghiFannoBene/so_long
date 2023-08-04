@@ -32,5 +32,6 @@ char	*ft_strjoin2(char *s1, char *s2);
 char	*crea_contusabile(char *contusabile, int fd);
 char	*size_1mem(char *c);
 void	getfree_g(char **ptr);
+char	*windows_return_carriage(char *fullstr);
 
 #endif

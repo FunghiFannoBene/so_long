@@ -29,6 +29,7 @@ void	print_move(t_image *game)
 
 int	close_x(t_image *game)
 {
+	free_matrix(game->map);
 	mlx_destroy_image(game->img_ptr, game->wall);
 	mlx_destroy_image(game->img_ptr, game->check);
 	mlx_destroy_image(game->img_ptr, game->terra);
@@ -41,18 +42,17 @@ int	close_x(t_image *game)
 	mlx_destroy_window(game->img_ptr, game->win);
 	mlx_destroy_display(game->img_ptr);
 	free(game->img_ptr);
-	free_matrix(game->map, game->map_size_y);
 	free(game);
 	ft_printf("Error\n");
 	exit(1);
 }
 
-void	free_matrix(char **matrix, int rows)
+void	free_matrix(char **matrix)
 {
 	int	i;
 
 	i = 0;
-	while (i < rows)
+	while (matrix[i])
 	{
 		free(matrix[i]);
 		i++;
@@ -92,11 +92,11 @@ void	check_presence(char *s, t_image *game)
 		if (s[i] == GIOCATORE)
 			game->char_count++;
 		if (s[i] == USCITA)
-			game->exit_check = true;
+			game->exit_check++;
 		i++;
 	}
 	if (game->collectible == 0 || game->char_count != 1
-		|| game->exit_check == false)
+		|| game->exit_check != 1)
 	{
 		free(s);
 		close_vc(game);

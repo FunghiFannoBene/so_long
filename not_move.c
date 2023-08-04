@@ -12,28 +12,33 @@
 
 #include "so_long.h"
 
-void	set_element_and_character(t_image *game, int tasto, char **element)
+int	set_element_and_character(t_image *game, int tasto, char **element)
 {
 	if (tasto == D || tasto == RIGHT)
 	{
 		game->actual = game->character_r;
 		*element = &(game->map[game->char_y][game->char_x + 1]);
+		return (1);
 	}
 	else if (tasto == A || tasto == LEFT)
 	{
 		game->actual = game->character_l;
 		*element = &(game->map[game->char_y][game->char_x - 1]);
+		return (1);
 	}
 	else if (tasto == W || tasto == UP)
 	{
 		game->actual = game->character_b;
 		*element = &(game->map[game->char_y - 1][game->char_x]);
+		return (1);
 	}
 	else if (tasto == S || tasto == DOWN)
 	{
 		game->actual = game->character_f;
 		*element = &(game->map[game->char_y + 1][game->char_x]);
+		return (1);
 	}
+	return (0);
 }
 
 void	check_for_victory(t_image *game, char *element)
@@ -72,7 +77,8 @@ int	cant_move(t_image *game, int tasto)
 {
 	char	*element;
 
-	set_element_and_character(game, tasto, &element);
+	if (!set_element_and_character(game, tasto, &element))
+		return (0);
 	check_for_victory(game, element);
 	check_for_flowers(game, element);
 	return (check_for_wall_or_exit(game, element));

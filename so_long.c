@@ -71,17 +71,17 @@ void	ft_check_map(char **s, t_image *game, char *sr)
 			close_vc(game);
 		}
 	}
+	game->map_size_y = y;
 	x = 0;
 	y--;
 	while (s[y][x])
 	{
-		if (s[y][x] == MURO && s[0][x] == MURO)
-			x++;
-		else
+		if (!(s[y][x] == MURO && s[0][x] == MURO))
 		{
 			free(sr);
 			close_vc(game);
 		}
+		x++;
 	}
 }
 
@@ -105,8 +105,8 @@ void	create_store_show(char *argv, t_image *game)
 		full_str = ft_strjoin(full_str, linea);
 		free(temp);
 		free(linea);
-		game->map_size_y++;
 	}
+	check_n(full_str, game);
 	full_str = convert_for_windows(full_str);
 	game->map = ft_split(full_str, '\n');
 	ft_check_map(game->map, game, full_str);
@@ -128,7 +128,6 @@ int	main(int argc, char **argv)
 	game->win = mlx_new_window(game->img_ptr, game->map_size_x * 65,
 			game->map_size_y * 65, "so_long");
 	game->actual = game->character_f;
-	print_map(game);
 	mlx_hook(game->win, KeyPress, KeyPressMask, ft_handle_input, game);
 	mlx_hook(game->win, DestroyNotify, ButtonPressMask, close_x, game);
 	mlx_hook(game->win, Expose, ExposureMask, print_map, game);

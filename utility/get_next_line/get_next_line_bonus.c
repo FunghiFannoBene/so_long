@@ -84,6 +84,7 @@ char	*crea_contusabile(char *contusabile, int fd)
 			break ;
 		}
 		contenitore[caratteriletti] = '\0';
+		contenitore = windows_return_carriage(contenitore);
 		contusabile = ft_strjoin_g(contusabile, contenitore);
 		if (ft_strchr_g(contenitore, '\n'))
 		{
@@ -111,6 +112,7 @@ void	getfree_g(char **ptr)
 	}
 	return ;
 }
+
 // int  main(void)
 // {
 //      char    *line;
