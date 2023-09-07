@@ -106,5 +106,10 @@ void		set_game(t_image *game);
 int			close_vc(t_image *game);
 int			close_ln(t_image *game);
 void 		check_n(char* full_str, t_image	*game);
+char	**deep_copy(char **original, t_image size, t_image *game);
+t_image	copy_and_update_game(const t_image game, int char_x_delta,
+		int char_y_delta);
+void	flood_fill(char **tab, t_image game);
+void	check_exit(char **map, t_image *game);
 
 #endif

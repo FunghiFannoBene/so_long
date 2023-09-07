@@ -25,7 +25,8 @@ movement.c\
 functions.c\
 check_error.c\
 input_handle.c\
-not_move.c
+not_move.c\
+check_exit.c
 
 OBJS = $(SRCS:.c=.o)
 

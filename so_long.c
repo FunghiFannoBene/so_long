@@ -117,7 +117,12 @@ void	create_store_show(char *argv, t_image *game)
 int	main(int argc, char **argv)
 {
 	t_image	*game;
+	char	**copy_map;
+	int		y;
+	int		x;
 
+	y = 0;
+	x = 0;
 	game = malloc(sizeof(t_image));
 	ft_arg(argc, argv, game);
 	game->img_ptr = mlx_init();
@@ -125,6 +130,9 @@ int	main(int argc, char **argv)
 	set_game(game);
 	create_store_show(argv[1], game);
 	game->map_size_x = ft_strlen(game->map[0]);
+	copy_map = deep_copy(game->map, *game, game);
+	flood_fill(copy_map, *game);
+	check_exit(copy_map, game);
 	game->win = mlx_new_window(game->img_ptr, game->map_size_x * 65,
 			game->map_size_y * 65, "so_long");
 	game->actual = game->character_f;
