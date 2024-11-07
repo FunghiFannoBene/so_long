@@ -27,7 +27,7 @@ int	close_vc(t_image *game)
 	free(game->img_ptr);
 	free_matrix(game->map);
 	free(game);
-	ft_printf("Error\n");
+	printf("Error\n");
 	exit(1);
 }
 
@@ -86,7 +86,7 @@ int	close_ln(t_image *game)
 	mlx_destroy_display(game->img_ptr);
 	free(game->img_ptr);
 	free(game);
-	ft_printf("Error\n");
+	printf("Error\n");
 	exit(1);
 }
 

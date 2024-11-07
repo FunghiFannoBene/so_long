@@ -38,17 +38,17 @@
 # define USCITA_IMG "./sprites/item/check.xpm"
 # define VITTORIA_IMG "./sprites/item/victory.xpm"
 
-# include "utility/ft_printf/ft_printf.h"
 # include "utility/get_next_line/get_next_line_bonus.h"
 # include "utility/libft/libft.h"
 # include <X11/X.h>
 # include <X11/keysym.h>
 # include <fcntl.h>
-# include <mlx.h>
+# include "minilibx-linux/mlx.h"
 # include <png.h>
 # include <stdbool.h>
 # include <stdlib.h>
 # include <unistd.h>
+# include <stdio.h>
 
 typedef struct s_image
 {

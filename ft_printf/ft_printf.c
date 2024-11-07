@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   printf.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shhuang <shhuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,7 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "printf.h"
 
 void	ft_putchar(char c)
 {
@@ -53,7 +53,7 @@ int	checkb(va_list percent, const char type)
 	return (x);
 }
 
-int	ft_printf(const char *s, ...)
+int	printf(const char *s, ...)
 {
 	size_t	i;
 	char	*str;

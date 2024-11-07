@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.h                                        :+:      :+:    :+:   */
+/*   printf.h                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: shhuang <shhuang@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,8 +10,8 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_PRINTF_H
-# define FT_PRINTF_H
+#ifndef printf_H
+# define printf_H
 
 # include <limits.h>
 # include <stdarg.h>
@@ -22,7 +22,7 @@
 # include <unistd.h>
 # include <stdint.h>
 
-int			ft_printf(const char *s, ...);
+int			printf(const char *s, ...);
 int			checkb(va_list percent, const char type);
 
 int			converter_dex_hex(long int a);

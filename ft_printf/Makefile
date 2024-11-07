@@ -11,7 +11,7 @@
 # **************************************************************************** #
 NAME	= libftprintf.a
 
-SRCS	= ft_printf.c \
+SRCS	= printf.c \
 		  functionsprintf.c \
 		  functionsprintf2.c \
 		  percentualelist.c \

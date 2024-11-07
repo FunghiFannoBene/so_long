@@ -15,7 +15,7 @@
 void	ft_error_msg(char *s, t_image *game)
 {
 	free(game);
-	ft_printf("%s", s);
+	printf("%s", s);
 	exit(0);
 }
 
@@ -62,7 +62,7 @@ int	close_z(t_image *game)
 	mlx_destroy_display(game->img_ptr);
 	free(game->img_ptr);
 	free(game);
-	ft_printf("Error\n");
+	printf("Error\n");
 	exit(1);
 }
 

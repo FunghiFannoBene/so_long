@@ -15,7 +15,6 @@ NC = \033[0m
 
 NAME = so_long
 LIBFT = ./utility/libft/libft.a
-FT_PRINTF = ./utility/ft_printf/libftprintf.a
 GET_NEXT_LINE = ./utility/get_next_line/get_next_line_bonus.a
 CC = gcc
 STDFLAG = -Wall -Werror -Wextra
@@ -30,20 +29,17 @@ check_exit.c
 
 OBJS = $(SRCS:.c=.o)
 
-MLX_FLAGS = -lmlx -lXext -lX11
+MLX_FLAGS = -Lminilibx-linux -lmlx -lXext -lX11
 
-all: $(LIBFT) $(FT_PRINTF) $(GET_NEXT_LINE) $(NAME)
+all: $(LIBFT)  $(GET_NEXT_LINE) $(NAME)
 
 $(NAME): $(OBJS)
-	$(CC) $(STDFLAG) -o $(NAME) $(OBJS) -L. -Wl,--whole-archive $(LIBFT) -Wl,--no-whole-archive $(FT_PRINTF) $(GET_NEXT_LINE) $(MLX_FLAGS)
+	$(CC) $(STDFLAG) -o $(NAME) $(OBJS) -L. -Wl,--whole-archive $(LIBFT) -Wl,--no-whole-archive  $(GET_NEXT_LINE) $(MLX_FLAGS)
 	#-fsanitize=address
 	@echo "$(RED)COMPILATO\nIl programma funziona perfettamente.$(NC)"
 
 $(LIBFT):
 	make -C ./utility/libft
-
-$(FT_PRINTF):
-	make -C ./utility/ft_printf
 
 $(GET_NEXT_LINE):
 	make -C ./utility/get_next_line
@@ -51,13 +47,11 @@ $(GET_NEXT_LINE):
 clean:
 	$(REMOVE) $(OBJS)
 	make clean -C ./utility/libft
-	make clean -C ./utility/ft_printf
 	make clean -C ./utility/get_next_line
 
 fclean: clean
 	$(REMOVE) $(NAME)
 	make fclean -C ./utility/libft
-	make fclean -C ./utility/ft_printf
 	make fclean -C ./utility/get_next_line
 	@echo "$(RED)ALL CLEAN\n... too clean.$(NC)"
 
